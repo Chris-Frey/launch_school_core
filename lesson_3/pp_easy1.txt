@@ -1,0 +1,44 @@
+question 1
+1
+2
+2
+3
+
+question 2
+1. != means not equal to. use it when you have a small number of cases you don't want to happen (like you'll accept any number EXCEPT 7)
+2. ! before a word returns 'true' if 2 objects are not equal. otherwise false.
+3. putting ! after something typically makes it a mutating action
+4.? before something is the ternary operator for if...else
+5. putting ? after something typically means you're asking if the action is true or not
+6. !! before something turns it into a boolean.
+
+question 3
+advice = "Few things in life are as important as house training your pet dinosaur."
+advice.split
+advice[6] = "urgent"
+
+question 4
+numbers.delete_at(1) will delete at the second index position in the array (the number "2" in this case)
+numbers.delete(1) will delete any instances of the number "1"
+
+question 5
+(10..100).include?(42)
+
+question 6
+famous_words = "seven years ago..."
+lincoln = "four score and " + #{famous_words}
+
+or
+
+famous_words = "seven years ago..."
+lincoln = "four score and "
+puts #{lincoln} + #{famous_words}
+
+question 7
+flinstones = ["Fred", "Wilma", ["Barney", "Betty"], ["BamBam", "Pebbles"]]
+puts flinstones.flatten!
+
+quesiton 8
+Turn this into an array containing only two elements: Barney's name and Barney's number
+flintstones = { "Fred" => 0, "Wilma" => 1, "Barney" => 2, "Betty" => 3, "BamBam" => 4, "Pebbles" => 5 }
+flinstones.assoc("Barney")

@@ -1,0 +1,36 @@
+question 1
+For this practice problem, write a one-line program that creates the following output 10 times, with the subsequent line indented 1 space to the right:
+The Flintstones Rock!
+ The Flintstones Rock!
+  The Flintstones Rock!
+10.times {|number| puts (" " * number) + "The flinstones Rock!"}
+
+question 2
+The result of the following statement will be an error: why and what are 2 ways to fix it?
+puts "the value of 40 + 2 is " + (40 + 2)
+puts "the value of 40 + 2 is " + (40 + 2).to_s
+puts "the value of 40 + 2 is #{40 + 2}"
+
+Question 3
+while divisor > 0
+  factors << number / divisor if number % divisor == 0
+  divisor -= 1
+end
+
+question 4
+
+
+question 5
+limit is outside the method definition scope. put limit inside the method and it works.
+
+question 6
+34
+
+question 7
+yes because the hash is getting passed into the method when the method is called with (munsters). the munsters hash can be outside of the method scope because it's only passed when called by the method.
+
+question 8
+paper
+
+question 9
+no
