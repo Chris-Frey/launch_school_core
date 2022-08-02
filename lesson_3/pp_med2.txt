@@ -1,1 +1,45 @@
 quesiton 1
+a = object id 1
+b = object id 2
+c = object id 1
+
+question 2
+all same object ID because integers are immutable (can't be changed)
+
+question 3
+the string will show rutababga next to the word pumpkins <<< this is wrong. 
+
+the string will show pumpkins because inside the method, the string is reassigned to a new object (rutabaga) which does not affect the string object on the outside of the method. so the call in the "puts" line, is only asking for the pumpkin.
+
+the array will add rutabaga as another piece of the array, in index position 1. inside the method, rutababga is appended to the array, since it's not "changing the array".
+
+Question 4
+string shows "my string looks like this now: pumpkinsrutabaga
+array shows "my array looks like this now: ["pumpkins"].... this is because inside the method, it's trying to redefine the array, which can't be read outside the method.
+
+question 5
+def tricky_method(a_string_param, an_array_param)
+  a_string_param += "rutabaga"
+  an_array_param += ["rutabaga"]  <<< adjust this to be +=
+
+  return a_string_param, an_array_param
+end
+
+my_string = "pumpkins"
+my_array = ["pumpkins"]
+my_string, my_array = tricky_method(my_string, my_array)   <<< add this line
+
+puts "My string looks like this now: #{my_string}"
+puts "My array looks like this now: #{my_array}"
+
+question 6
+def color_valid(color)
+  color == "blue" || color == "green" ? true : false   
+end
+puts color_valid("green")
+
+or
+
+def color_valid(color)
+  color == "blue" || color == "green"
+end
