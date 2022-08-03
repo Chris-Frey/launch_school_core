@@ -1,0 +1,18 @@
+Questions:
+  what is a substring
+  what is a palindrome
+  will inputs always be strings?
+  what does it mean to treat palindrome words case-sensitive?
+input
+  strings
+output
+  all substrings from strings which are palindromes, in an array
+
+implicit rules
+  palindromes can get letters inside a word, not necessarily whole words
+  words with no palindromes should return a empty array
+  letters can be used more than once 
+  blank strings should return empty array
+
+explicit rules
+  words are case sensative (capitalized word would not be a valid result)
