@@ -1,0 +1,5 @@
+file#path 
+returns the pathname that was used to create the file, as a string
+
+file::path
+returns the pathname of the file location in a string
