@@ -100,20 +100,20 @@
 
 #problem 4
 
-def multiply(my_num, num)
-counter = 0
-z = []
+# def multiply(my_num, num)
+# counter = 0
+# z = []
 
-  loop do
-    break if counter == my_num.size
+#   loop do
+#     break if counter == my_num.size
 
-    x = my_num[counter]
-    z << x *= num
+#     x = my_num[counter]
+#     z << x *= num
 
-  counter += 1
-  end
+#   counter += 1
+#   end
 
-puts z
-end  
-my_numbers = [1, 4, 3, 7, 2, 6]
-multiply(my_numbers, 3) # => [3, 12, 9, 21, 6, 18]
+# puts z
+# end  
+# my_numbers = [1, 4, 3, 7, 2, 6]
+# multiply(my_numbers, 3) # => [3, 12, 9, 21, 6, 18]
