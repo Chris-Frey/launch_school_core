@@ -1,9 +1,9 @@
 def sum(num)
-num.to_s.split(//).map! {|nums| nums.to_i}
-
+  num.to_s.split(//).map {|x| x.to_i}.sum
 end
 
-p sum(23) 
-# == 5
-# puts sum(496) == 19
-# puts sum(123_456_789) == 45
+
+
+puts sum(23) == 5
+puts sum(496) == 19
+puts sum(123_456_789) == 45
