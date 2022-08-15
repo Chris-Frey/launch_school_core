@@ -1,17 +1,17 @@
 def real_palindrome?(arg)
-  solution = []
-arr = arg.downcase.split(//).reverse
-if arr.each >= "a" && arr.each <= "z"
-  solution << arr.each
-  solution
+  str1 = []
+  # str2 = []
+
+ str1 = arg.downcase.gsub(/[^0-9A-Za-z]/, '')
+ str2 = str1.split(//).reverse.join.to_s
+str2 == str1
 end
-end
 
 
 
-real_palindrome?('madam') == true
-real_palindrome?('Madam') == true           # (case does not matter)
-real_palindrome?("Madam, I'm Adam") == true # (only alphanumerics matter)
-real_palindrome?('356653') == true
-real_palindrome?('356a653') == true
-real_palindrome?('123ab321') == false
+p real_palindrome?('madam') == true
+p real_palindrome?('Madam') == true           # (case does not matter)
+p real_palindrome?("Madam, I'm Adam") == true # (only alphanumerics matter)
+p real_palindrome?('356653') == true
+p real_palindrome?('356a653') == true
+p real_palindrome?('123ab321') == false
