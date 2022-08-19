@@ -14,6 +14,8 @@ def century(u_num)
     u_num.join.to_s + "st"
   elsif u_num.join.to_i == 11
     u_num.join.to_s + "th" 
+  elsif u_num.join.to_i.between?(04, 19)
+    u_num.join.to_s + "th"
   elsif u_num.last.to_i == 0
           u_num.join.to_s + "th"
   elsif u_num.last.to_i == 1
@@ -22,8 +24,7 @@ def century(u_num)
           u_num.join.to_s + "nd"
   elsif u_num.last.to_i == 3
           u_num.join.to_s + "rd"
-  elsif u_num.last.to_i.between?(04, 9)
-          u_num.join.to_s + "th"
+
     else 'NA'
   end
 end
