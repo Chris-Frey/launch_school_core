@@ -1,10 +1,18 @@
 def word_sizes(str)
   arr = []
-  arr = str.split
-  p arr.each.with_index(1).to_a.map.to_h
-  p arr
-end
-
+  nums = {}
+  counter = 0
+  
+  loop do
+    
+    arr = str.split(//)
+    nums.store(arr.count[counter]) 
+    break if counter == str.length
+   counter += 1
+    end
+  p nums
+  end
+# end
 
 
 
