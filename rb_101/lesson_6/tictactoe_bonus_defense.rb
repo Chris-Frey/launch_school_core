@@ -72,13 +72,30 @@ def player_places_piece!(brd)
     break if empty_squares(brd).include?(square)
     prompt "sorry that's not a valid choice"
   end
-
   brd[square] = PLAYER_MARKER
 end
 
+
 def computer_places_piece!(brd)
   square = empty_squares(brd).sample
-  brd[square] = COMPUTER_MARKER
+  defense_pick = []
+  answer = []
+  first_num = []
+  defense_pick << ((1..9).to_a) - empty_squares(brd)
+  p box = (WINNING_LINES.map {|x| x - defense_pick.flatten})
+  
+  options = box.select do |num|
+    if num.count == 1
+       answer << num
+    end
+  end
+  p  (first_num = answer.flatten.sample)
+    brd[first_num] = COMPUTER_MARKER
+  
+  # end
+  if options == []
+    brd[square] = COMPUTER_MARKER
+  end
 end
 
 def someone_won?(brd)
@@ -105,6 +122,7 @@ player_wins = 0
 comp_wins = 0
 
 loop do
+
   board = initialize_board
 
   def board_full?(brd)

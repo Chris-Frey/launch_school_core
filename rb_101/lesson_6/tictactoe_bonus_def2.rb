@@ -76,10 +76,55 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
-def computer_places_piece!(brd)
+# def computer_places_piece!(brd)
+ 
+  # comp_mark = brd[line[2]] == COMPUTER_MARKER
+
+  # case defend
+  # when brd[line[0]] == PLAYER_MARKER &&
+  #   brd[line[1]] == PLAYER_MARKER
+  #     brd[comp_mark]
+  # when brd[line[1]] == PLAYER_MARKER &&
+  #   brd[line[2]] == PLAYER_MARKER
+  # when brd[line[0]] == PLAYER_MARKER &&
+  #   brd[line[2]] == PLAYER_MARKER
+
+  # else
+  # brd[square] = COMPUTER_MARKER
+  # end
+# comp_mark = box.select do |num|
+#   if num.count == 1
+#      answer << num
+#   end
+# end
+# end
+
+def computer_places_piece!(brd) 
   square = empty_squares(brd).sample
-  brd[square] = COMPUTER_MARKER
+
+  WINNING_LINES.select do |pattern|
+     
+    if brd[pattern[0]] == PLAYER_MARKER &&
+        brd[pattern[1]] == PLAYER_MARKER
+        brd[pattern[2]] = COMPUTER_MARKER
+      break
+
+    elsif brd[pattern[2]] == PLAYER_MARKER &&
+          brd[pattern[1]] == PLAYER_MARKER
+          brd[pattern[0]] = COMPUTER_MARKER
+      break
+
+    elsif brd[pattern[0]] == PLAYER_MARKER &&
+          brd[pattern[2]] == PLAYER_MARKER
+          brd[pattern[1]] = COMPUTER_MARKER
+      break
+
+    else
+      brd[square] = COMPUTER_MARKER
+    end
+  end
 end
+
 
 def someone_won?(brd)
   !!detect_winner(brd)
