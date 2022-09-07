@@ -8,7 +8,7 @@
 # play again?
   # yes
   # no
-require 'pry'
+# require 'pry'
 
 INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
@@ -76,85 +76,29 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
-# def computer_places_piece!(brd)
- 
-  # comp_mark = brd[line[2]] == COMPUTER_MARKER
-
-  # case defend
-  # when brd[line[0]] == PLAYER_MARKER &&
-  #   brd[line[1]] == PLAYER_MARKER
-  #     brd[comp_mark]
-  # when brd[line[1]] == PLAYER_MARKER &&
-  #   brd[line[2]] == PLAYER_MARKER
-  # when brd[line[0]] == PLAYER_MARKER &&
-  #   brd[line[2]] == PLAYER_MARKER
-
-  # else
-  # brd[square] = COMPUTER_MARKER
-  # end
-# comp_mark = box.select do |num|
-#   if num.count == 1
-#      answer << num
-#   end
-# end
-# end
-
-def computer_places_piece!(brd) 
-  square = empty_squares(brd).sample
-  # winner2 = []
-  # w2a = []
-
-  answer = []
-  first_num = [] 
-  defense_pick = []
-  defense_pick << ((1..9).to_a) - empty_squares(brd)
-   box = (WINNING_LINES.map {|x| x - defense_pick.flatten})
-   winner2 = box.map {|win| win[2] == PLAYER_MARKER}.uniq.flatten.compact
-   winner1 = box.map {|win| win[1] == PLAYER_MARKER}.uniq.flatten.compact
-  p winner0 = box.map {|win| win[0] == PLAYER_MARKER}.uniq.flatten.compact
-
-  box.select do |arr|
-    if arr.count == 1    
-    p  answer << arr
-     end
+def find_at_risk_square(line, board)
+  if board.values_at(*line).count(COMPUTER_MARKER) == 2
+    board.select{|k, v| line.include?(k) && v == INITIAL_MARKER}.keys.first
+  elsif board.values_at(*line).count(PLAYER_MARKER) == 2
+    board.select{|k, v| line.include?(k) && v == INITIAL_MARKER}.keys.first
+  else
+    nil
   end
-  p  (first_num = answer.flatten.min)
-  # p w2a = if winner0.include?(first_num)
-  #   first_num
-  # end
-  # p w0a = if winner1.include?(first_num)
-  #   first_num
-  # end
-  # p w1a = if winner2.include?(first_num)
-  #   first_num
-  # end
-# end
-
-  WINNING_LINES.select do |pattern|
-
-    if brd[pattern[0]] == PLAYER_MARKER &&
-        brd[pattern[1]] == PLAYER_MARKER
-      return brd[first_num] = COMPUTER_MARKER 
-      break
-      
-    elsif brd[pattern[2]] == PLAYER_MARKER &&
-          brd[pattern[1]] == PLAYER_MARKER
-      return brd[first_num] = COMPUTER_MARKER
-      break
-    
-    elsif brd[pattern[0]] == PLAYER_MARKER &&
-          brd[pattern[2]] == PLAYER_MARKER
-      return brd[first_num] = COMPUTER_MARKER
-      break
-
-    else
-      brd[square] = COMPUTER_MARKER
-    end
-  
-  end
-
 end
 
+def computer_places_piece!(brd)
+  square = nil
+  WINNING_LINES.each do |line|
+    square = find_at_risk_square(line, brd)
+    break if square
+  end
+
+  if !square
+    square = empty_squares(brd).sample
+  end
+
+  brd[square] = COMPUTER_MARKER
+end
 
 def someone_won?(brd)
   !!detect_winner(brd)

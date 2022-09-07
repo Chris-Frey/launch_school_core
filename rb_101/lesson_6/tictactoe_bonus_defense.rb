@@ -78,24 +78,28 @@ end
 
 def computer_places_piece!(brd)
   square = empty_squares(brd).sample
-  defense_pick = []
+
+  defense_pick = [] 
   answer = []
   first_num = []
   defense_pick << ((1..9).to_a) - empty_squares(brd)
   p box = (WINNING_LINES.map {|x| x - defense_pick.flatten})
   
-  options = box.select do |num|
-    if num.count == 1
-       answer << num
+  options = box.select do |arr|
+     if arr.any? {|x| x == 1}
+      brd[square] = COMPUTER_MARKER
+
+      elsif arr.count == 1
+    p   answer << arr
     end
   end
-  p  (first_num = answer.flatten.sample)
-    brd[first_num] = COMPUTER_MARKER
+  p  (first_num = answer.flatten)
+    brd[first_num.flatten.sample] = COMPUTER_MARKER
   
   # end
-  if options == []
-    brd[square] = COMPUTER_MARKER
-  end
+  # if options == []
+  #   brd[square] = COMPUTER_MARKER
+  # end
 end
 
 def someone_won?(brd)
