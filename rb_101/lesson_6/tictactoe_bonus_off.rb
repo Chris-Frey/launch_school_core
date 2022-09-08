@@ -10,6 +10,7 @@
   # no
 # require 'pry'
 
+
 INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
@@ -63,6 +64,26 @@ def joinor(arr, pun = ", ", word = "or")
   end
 end
 
+# whose_turn = 0
+
+# def who_first?(arg)
+#   loop do
+#     prompt "Press 1 to go first, or 0 for the computer to start."
+#      input = gets.chomp.to_i
+#       if input == 1
+#       prompt 'Human first'
+#       whose_turn = 1
+#       break 
+#       elsif input == 0
+#       prompt 'computer first'
+#       whose_turn = 0
+#       break
+#       else
+#       "ummm...."
+#       end
+#   end
+# end
+
 def player_places_piece!(brd)
   square = ''
   arr = empty_squares(brd)
@@ -93,6 +114,16 @@ def computer_places_piece!(brd)
     break if square
   end
 
+
+  if !square
+    square = 5
+    if brd[square] == INITIAL_MARKER
+      brd[square] == COMPUTER_MARKER
+    else
+      square = empty_squares(brd).sample
+    end
+  end
+
   if !square
     square = empty_squares(brd).sample
   end
@@ -120,6 +151,22 @@ def detect_winner(brd)
   nil
 end
 
+# player_first = player_places_piece!(board)
+#     if someone_won?(board) || board_full?(board)
+#       player_wins += 1
+#       # break
+#     end
+    
+#     computer_first = computer_places_piece!(board)
+#     if someone_won?(board) || board_full?(board)
+#       comp_wins += 1
+#       # break
+#     end
+
+
+
+
+# who_first?(1)
 player_wins = 0
 comp_wins = 0
 
@@ -133,16 +180,21 @@ loop do
   loop do
     display_board(board)
 
-    player_places_piece!(board)
-    if someone_won?(board) || board_full?(board)
-      player_wins += 1
-      break
-    end
-    computer_places_piece!(board)
-    if someone_won?(board) || board_full?(board)
-      comp_wins += 1
-      break
-    end
+    # if whose_turn == 1
+      player_places_piece!(board)
+      if someone_won?(board) || board_full?(board)
+        player_wins += 1
+        break
+      end
+
+      computer_places_piece!(board)
+      if someone_won?(board) || board_full?(board)
+        comp_wins += 1
+        break
+      end
+    
+
+    
   end
 
   display_board(board)
