@@ -45,7 +45,7 @@ loop do # main loop
   loop do
     prompt("what's the first number?")
     number1 = Kernel.gets().chomp()
-    if valid_number?(number1)
+    if number?(number1)
       break
     else
       prompt("That doesn't look like a valid number")
@@ -56,7 +56,7 @@ loop do # main loop
   loop do
     prompt("what is the second number?")
     number2 = gets().chomp()
-    if valid_number?(number2)
+    if number?(number2)
       break
     else
       prompt("that doesn't look like a valid number")

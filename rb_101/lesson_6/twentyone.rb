@@ -21,95 +21,167 @@
 
 
 
-player_hand = []
-def deck
+p_hand = []
+d_hand = []
+current_deck = []
+def prompt(message)
+  puts("=> #{message}")
+end
+
+def deck #hash with arrays of values
   suits = ["hearts", "spades", "diamonds", "clubs"]
   cards = (2..10).to_a, ["Jack", "King", "Queen", "Ace"] 
   full_deck = {}
   suits.each do |suit|
-    full_deck.store(suit.to_sym, cards.flatten )
+    full_deck.store(suit, cards.flatten )
   end
   full_deck
 end
 #  p deck
 
-def card_points
-  point_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
-
+def card_points(hand)
+  point_values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 1]
+   hand
+  points = point_calculation(hand).map {|x| point_values[x]}
+  points.sum
 end
 # p card_points
 
+def card_index
+  index_values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"]
+end
+# p card_index
+
+def point_calculation(hand)
+  cards = hand.map do |x|
+    x.map do |k, v|
+      v
+    end
+  end
+  cards.flatten!
+  cards.map do |card| 
+    if card_index.include?(card) 
+      then card_index.index(card) 
+    end
+  end
+end
+
+def game_deck
+  current_deck = deck.dup
+end
+# p game_deck
+
 def draw
   card = {}
-  card_suit = deck.keys.sample
-  card_value = deck[card_suit]
+  card_suit = game_deck.keys.sample
+  card_value = game_deck[card_suit]
   card.store(card_suit, card_value.sample)
   card
 end
-# p draw
 
 
-p player_hand << draw
 
+  def player_draw(hand)  
+      if hand.include?(draw)
+        then draw
+      else
+      hand << draw
+      end
+  end
+  # player_draw(p_hand)
 
-# def show_player_hand
-#   p "your hand is currently:
-#   #{p_hand}
-#   Worth #{p_points} points"
-# end
+  def dealer_draw(hand)
+    if hand.include?(draw)
+      then draw
+    else
+    hand << draw
+    end
+  end
+  # dealer_draw(p_hand)
 
-# def show_dealer_hand
-#   p "The dealer has a #{card} of #{suit} visible, worth #{d_points} points."
-# end
+  def show_player_hand(hand)
+    suit = hand.map {|x| x.keys}.flatten
+    card = hand.map {|x| x.values}.flatten
+    hand.map {|x| card + suit}
+  puts  "your hand is currently: #{hand}, worth #{card_points(hand)} points"
+  end
+  # show_player_hand(p_hand)
 
-# def player_turn
-#   loop do
-#     p "Would you like to hit, or stay? 1 for hit, 2 for stay."
-#     choice = gets.chomp.to_i
-#     if choice == 2
-#         return 2
-#       break
-#     elsif choice == 1
-#       p_hand << player_draw
-#         return 1
-#       break
-#     else
-#       p "Please follow directions"
-#     end
-#   end
-# end
+  def show_dealer_hand(hand)
+    suit = hand.map {|x| x.keys}.flatten
+    card = hand.map {|x| x.values}.flatten
+    hand.map {|x| card + suit}
+  prompt("Dealer's hand shows: #{hand[0]}, worth #{card_points(hand)} points")
+  end
+  # show_player_hand(p_hand)
 
-# def dealer_turn
-#     if d_hand < 17
-#       d_hand << d_draw
-#     end
-# end
+  # def show_dealer_hand
+  #   p "The dealer has a #{card} of #{suit} visible, worth #{d_points} points."
+  # end
 
-# def check_for_21
-#   if p_hand == 21 || d_hand > 21
-#     return 'player'
-#   elsif d_hand == 21 || p_hand > 21
-#     return 'dealer'
-#   end
-# end
+  
+def player_turn(hand)
+  loop do
+    check_for_21(hand)
+    if check_for_bust(hand) == true
+      prompt("BUST!")
+      break
+    end
+    prompt("Would you like to hit, or stay? 1 for hit, 2 for stay.")
+    choice = gets.chomp.to_i
+      if choice == 2
+        break
 
+        elsif choice == 1
+          player_draw(hand)
+          show_player_hand(hand)
+                    
+        else
+          prompt("Please follow directions")
+      end
+  end
+end
 
-# loop do #game loop
-#   show_player_hand
-#   show_dealer_hand
+def dealer_turn(hand)
+  loop do
+    check_for_21(hand)
+    check_for_bust(hand)
+      if card_points(hand) > 17
+        prompt("Dealer holds at #{card_points(hand)}.")
+        break
+      else 
+        prompt("Dealer hits")
+          dealer_draw(hand)
+          show_dealer_hand(hand)
+      end
+  end
+end
 
-#   player_turn
-#   if check_for_21
-#     break
-#   end
+def check_for_bust(hand)
+  if card_points(hand) > 21
+    true
+  end
+end
 
-#   show_player_hand
-#   show_dealer_hand
+def check_for_21(hand)
+  if hand == 21
+    prompt("We have a winner!")
+  end
+end
 
-#   dealer_turn
-#   if check_for_21
-#     break
-#   end
+#MAIN GAME FLOW
+  player_draw(p_hand)
+  player_draw(p_hand)
+  show_player_hand(p_hand)
+  dealer_draw(d_hand)
+  show_dealer_hand(d_hand)
+  player_turn(p_hand)
+
+  dealer_turn(d_hand)
+
+  # def who_won?()
+  
+  # end
 
 #  p "x won!
 #   play again? (y/n)"
