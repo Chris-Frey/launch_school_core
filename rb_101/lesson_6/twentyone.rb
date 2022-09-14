@@ -168,7 +168,6 @@ loop do
       else
         prompt("Dealer hits")
         dealer_draw(hand)
-
       end
     end
   end
