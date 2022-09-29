@@ -1,21 +1,15 @@
-def sum_of_sums(arr)
-  index = 0
-  size = arr.length
-  spot = size * -1
+def leading_substrings(str)
+  letters = ''
   full_arr = []
 
-    loop do
-      break if index == arr.length
-
-      full_arr << arr[0..spot]
-      spot += 1
-      index += 1
-
-    end
-  p full_arr.flatten.sum
+  init_array = str.split(//)
+  init_array.map do |string|
+    full_arr << letters += string
+  end
+  p full_arr
 end
 
 
-leading_substrings('abc') == ['a', 'ab', 'abc']
-leading_substrings('a') == ['a']
-leading_substrings('xyzzy') == ['x', 'xy', 'xyz', 'xyzz', 'xyzzy']
+p leading_substrings('abc') == ['a', 'ab', 'abc']
+p leading_substrings('a') == ['a']
+p leading_substrings('xyzzy') == ['x', 'xy', 'xyz', 'xyzz', 'xyzzy']
