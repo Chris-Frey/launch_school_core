@@ -4,7 +4,7 @@ vehicles = [
 ]
 
 def count_occurrences(arg)
-puts arg.tally
+ arg.tally
 end
 
-count_occurrences(vehicles)
+puts count_occurrences(vehicles)

@@ -2,13 +2,13 @@ def find_dup(arr)
   counter = 0
   changed = arr.uniq
   loop do
-  until arr[counter] != changed[counter]
-  p  arr[counter]
-  break
-  counter += 1
+     arr.values_at(counter)
+    break if arr[counter] != changed[counter]
+      
+    counter += 1
+    # end
   end
-  end
-# p arr[counted.length]
+  p arr.values_at(counter).join.to_i
 end
 
 

@@ -41,3 +41,43 @@ p crunch('ddaaiillyy ddoouubbllee') #== 'daily double'
 # crunch('ggggggggggggggg') == 'g'
 # crunch('a') == 'a'
 # crunch('') == ''
+
+
+
+
+=begin
+*************PROBLEM***************************
+*coding goal:
+
+*initial input: 
+
+*overall output:
+
+*explicit requirements:
+
+*implicit requirements:
+ 
+*questions:
+ 
+*************EXAMPLES AND TEST CASES************
+
+*restate all test cases given (or write out an example for clarity)
+
+*add edge cases, 0 and empty:
+
+*************DATA STRUCTURE*********************
+
+**any patterns from test cases, or 
+	notable data structure? what kind can i use:
+
+**************SCRATCH PAD***********************
+-
+************ALGORITHM***************************
+
+A. Main Method (high-level | What is my overarching process)
+	1. 
+
+
+B. sub-methods (code steps in words)
+	1.
+=end
