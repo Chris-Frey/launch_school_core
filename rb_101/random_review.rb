@@ -1,28 +1,54 @@
-def mixed_sort(arr)
-  arr.sort_by do |x|
-    x.to_i
-  end.reverse!
+# def names_youngest_to_oldest(people)
+#   names = people.keys
+  
+#   group = people.sort_by {|k, v| v}
+#   arr = group.map {|x| x[0]}
+#   arr
+#   end
+  
+def names_youngest_to_oldest(people)
+  names = people.keys
+  names.sort_by {|name| people[name]}
 end
 
+#Test Cases
+people_1 = { 'jim' => 50, 'jill' => 25, "artemis" => 42, 'johnny' => 37, 'earl' => 65 }
+people_2 = { 'alexandra' => 5, 'bob' => 94, "jolene" => 44, 'demosthenes' => 26 }
+people_3 = { 'sigmund' => 10, 'jane' => 21, "colin" => 17 }
+
+p names_youngest_to_oldest(people_1) == ['jill', 'johnny', 'artemis', 'jim', 'earl'] #=> true
+p names_youngest_to_oldest(people_2) == ['alexandra', 'demosthenes', 'jolene', 'bob'] #=> true
+p names_youngest_to_oldest(people_3) == ['sigmund', 'colin', 'jane'] #=> true
 
 
 
-
- arr_1 = [5, "9", 7, 4, "1", "3"]
- arr_2 = [15, "16", 1, "245", 8, 11]
- arr_3 = [1, 2, "4", 9, 100]
-
-p mixed_sort(arr_1) == ["9", 7, 5, 4, "3", "1"] #=> true
-p arr_1 == [5, "9", 7, 4, "1", "3"] #=> true
-
-p mixed_sort(arr_2) == ["245", "16", 15, 11, 8, 1] #=> true
-arr_2 == [15, "16", 1, "245", 8, 11] #=> true
-
-p mixed_sort(arr_3) == [100, 9, "4", 2, 1] #=> true
-arr_3 == [1, 2, "4", 9, 100] #=> true
+# competitors = [{name: "Gracie-Leigh Cruz",      height: "5ft 2in",  weight: 129},
+#   {name: "Suhail Stott",           height: "5ft 7in",  weight: 169},
+#   {name: "Ava-May Hall",           height: "5ft 7in",  weight: 177},
+#   {name: "Katie-Louise Milne",     height: "5ft 11in", weight: 122},
+#   {name: "Akbar Bolton",           height: "5ft 4in",  weight: 135},
+#   {name: "Joy Thompson",           height: "5ft 10in", weight: 177},
+#   {name: "Rickie Nunez",           height: "5th 5in",  weight: 142},
+#   {name: "Yaqub Combs",            height: "6ft 0in",  weight: 193},
+#   {name: "Tulisa Guzman",          height: "5ft 3in",  weight: 111},
+#   {name: "Haydn Farrell",          height: "5ft 7in",  weight: 155}]
 
 
+# init = []
+# pair = []
+# combo = []
+# competitor_ids = competitors.map do |competitor|
+#   pair << competitor[:name]
+#   init << competitor[:name][0..2] 
+#   init << competitor[:weight]
+#   pair << init.join
+#   combo << pair.flatten
 
+#   pair = []
+#   init = []
+# end
+
+# p competitor_ids
 
 
 
