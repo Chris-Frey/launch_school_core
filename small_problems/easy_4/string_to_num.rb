@@ -11,7 +11,34 @@ def string_to_integer(str)
     9 => "9",
     0 => "0",
   }
-  # nums = {
+  
+  # new_str = ''
+
+  #  arr = str.split(//)
+#   # arr.each do |num|
+#   str.each_char do |num|
+    
+#       p nums.key(num)
+#       new_str += nums.values_at(num)
+#     # end
+#   # end
+#   end
+#  new_str
+# # p sol
+# end
+str.each_char do |num|
+  p nums.key(num)
+end
+end
+
+
+
+p string_to_integer('4321') == 4321
+p string_to_integer('570') == 570
+
+
+
+# nums = {
   #   "1" => 1,
   #   "2" => 2,
   #   "3" => 3,
@@ -23,22 +50,3 @@ def string_to_integer(str)
   #   "9" => 9,
   #   "0" => 0,
   # }
-  # new_str = ''
-
-  #  arr = str.split(//)
-  # arr.each do |num|
-    str.each_char do |num|
-    
-      p nums.key(num)
-      # new_str += nums.values_at(num).
-    # end
-  # end
-  end
-#  new_str
-end
-
-
-
-
-p string_to_integer('4321') == 4321
-p string_to_integer('570') == 570

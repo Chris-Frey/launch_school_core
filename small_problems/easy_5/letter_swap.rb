@@ -1,11 +1,15 @@
 def swap(str)
-p str.split
+ spl =  str.split
+  spl.map do |ele|
+    ele[ele.length - 1] = ele[0]
+    ele[0] = ele[ele.length - 1]
+    # end
+  end
+p th
 end
-# end
 
-
-# swap('Abcde') == 'ebcdA'
-swap('Oh what a wonderful day it is') #== 'hO thaw a londerfuw yad ti si'
+p swap('Abcde') #== 'ebcdA'
+# p swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
 # take a string
 # separate string into words by space (array)
 # separate into hashes

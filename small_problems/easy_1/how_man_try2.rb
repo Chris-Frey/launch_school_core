@@ -7,4 +7,4 @@ def count_occurrences(arg)
  arg.tally
 end
 
-puts count_occurrences(vehicles)
+p count_occurrences(vehicles)

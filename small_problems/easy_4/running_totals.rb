@@ -1,7 +1,9 @@
 
-def running_total(arg)
+def running_total(arr)
   # pos == 0
-    p arg.map {|x| x + x[x.index(1).pred] }
+    p arr.map do |x| 
+      x + x.index(x - 1)
+    end
 
   
 end

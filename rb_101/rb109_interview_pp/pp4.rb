@@ -37,30 +37,35 @@ A. Main Method (high-level | What is my overarching process)
 
 def closest_numbers(arr)
   final_variable = []
-  temp_variable = [1000] 
+  temp_variable = [] 
   index = 0
 
   sorted = arr.sort!.reverse!
 
   loop do
+    # p arr[index]
+    # p arr[index + 1]
      temp_variable = (arr[index] - arr[index + 1])
-     p temp_variable
-    if temp_variable < final_variable.sum
-      final_variable << arr[index] << arr[index + 1]
+    p temp_variable
+
+    if final_variable == []
+      final_variable << (arr[index] + arr[index + 1])
+      p final_variable
+    elsif temp_variable < final_variable.sum
+      final_variable = (arr[index] + arr[index + 1])
     end
-    p final_variable
-      index += 1
-      break if arr[index] == arr.length - 2
+    index += 1
+
+    break if index == arr.length - 1
 
   end
-    p final_variable
+     final_variable
     # p temp_variable
-  # end
 end
 
 
 
 
-p closest_numbers([5, 25, 15, 11, 20])# == [15, 11]
+ closest_numbers([5, 25, 15, 11, 20])# == [15, 11]
 # p closest_numbers([19, 25, 32, 4, 27, 16]) == [25, 27]
 # p closest_numbers([12, 7, 17]) == [12, 7]

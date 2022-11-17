@@ -1,25 +1,20 @@
 def buy_fruit(list)
-  f_index = 0
-  n_index = 1
-  fruit = list[f_index][n_index]
-  new_arr = []
+  index = 0
+  arr =[]
 
-  loop do 
-    break if f_index == list.length
-    # f_index
-     (list[f_index][1]).times do |x|
-      new_arr << x[f_index][0] 
-    end
-     f_index += 1
-    
+  solution = list.map do |x|
+              list[index][1].times do
+              arr << (list[index][0])
+              end
+    index += 1
   end
-p new_arr
+  arr
 end
 
 
 
 
-buy_fruit([["apples", 3], ["orange", 1], ["bananas", 2]]) ==
+p buy_fruit([["apples", 3], ["orange", 1], ["bananas", 2]]) ==
 ["apples", "apples", "apples", "orange", "bananas","bananas"]
 
 
