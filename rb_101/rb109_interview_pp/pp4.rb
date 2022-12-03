@@ -45,21 +45,25 @@ def closest_numbers(arr)
   loop do
     # p arr[index]
     # p arr[index + 1]
+    break if index == arr.length - 1
      temp_variable = (arr[index] - arr[index + 1])
-    p temp_variable
+    # p temp_variable
 
     if final_variable == []
-      final_variable << (arr[index] + arr[index + 1])
-      p final_variable
-    elsif temp_variable < final_variable.sum
+      final_variable << temp_variable
+      #  final_variable = final_variable.sum
+      # p final_variable
+    elsif temp_variable < final_variable
       final_variable = (arr[index] + arr[index + 1])
+    else index += 1
+      next
     end
     index += 1
 
-    break if index == arr.length - 1
+    
 
   end
-     final_variable
+    p final_variable
     # p temp_variable
 end
 
