@@ -34,29 +34,29 @@ execute 'n' times,
 puts the answer
 =end
 
-# def diamond(num)
-#   star = "*"
-#   mult = 1
-#   counter = 1
-#   flip = 0
+def diamond(num)
+  star = "*"
+  mult = 1
+  counter = 1
+  flip = 0
   
-#   loop do
-#     puts (star * mult).center(num) 
+  loop do
+    puts (star * mult).center(num) 
 
-#     if counter <=  num / 2 && flip == 0
-#       counter += 1
-#       mult += 2
-#     elsif counter > num / 2
-#       counter -= 1
-#       mult -= 2
-#       flip = 1
-#     else
-#       counter -= 1
-#       mult -= 2
-#     end
-#     break if counter == 0
-#   end
-# end
+    if counter <=  num / 2 && flip == 0
+      counter += 1
+      mult += 2
+    elsif counter > num / 2
+      counter -= 1
+      mult -= 2
+      flip = 1
+    else
+      counter -= 1
+      mult -= 2
+    end
+    break if counter == 0
+  end
+end
 
 
 # diamond(12)
@@ -85,7 +85,6 @@ def diamond(num)
       counter -= 1
       mult -= 2
     end
-
     break if counter == 0
   end
 end

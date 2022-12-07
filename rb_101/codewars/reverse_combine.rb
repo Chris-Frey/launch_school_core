@@ -79,21 +79,21 @@ def reverse_and_combine_text(str)
   if spl.count < 2
     return str
   end
-  arr = spl.map {|chunk| chunk.reverse}
+  arr = spl.map { |chunk| chunk.reverse}
 
   # p arr
   loop do
     if arr.count >= 3
       added << arr.shift + arr.shift
     else
-      added[0].apend(arr.shift)
+      added[0].concat(arr.shift)
     end
-      p added
-      p arr
-      p "is array"
+      # p added
+      # p arr
+      # p "is array"
         if index != 0
           output << added.reverse!
-      p output
+       output
         end
         if arr.length == 2
           return added.join
@@ -103,15 +103,15 @@ def reverse_and_combine_text(str)
     break if index >= (spl.length )
 
   end
- p added.join.reverse
+  added.join.reverse
 
 end
 
 
 # test cases 
-# p reverse_and_combine_text("abc def") == "cbafed"
-# p reverse_and_combine_text("abc def ghi jkl") == "defabcjklghi"
-# p reverse_and_combine_text("dfghrtcbafed") == "dfghrtcbafed"
+p reverse_and_combine_text("abc def") == "cbafed"
+p reverse_and_combine_text("abc def ghi jkl") == "defabcjklghi"
+p reverse_and_combine_text("dfghrtcbafed") == "dfghrtcbafed"
 p reverse_and_combine_text("234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44") == "trzwqfdstrteettr45hh4325543544hjhjh21lllll"
 # p reverse_and_combine_text("sdfsdf wee sdffg 342234 ftt") == "gffds432243fdsfdseewttf"
 
