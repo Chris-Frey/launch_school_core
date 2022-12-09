@@ -1,5 +1,4 @@
 =begin
-https://www.woolx.com/
 1.Count letters in string 
 (https://www.codewars.com/kata/5808ff71c7cfa1c6aa00006d/train/ruby)
 6 kyu
@@ -43,4 +42,16 @@ Algorithm
 
 def letter_count(str)
   str.split(//).map! { |ele| ele.to_sym }.sort.tally
+end
+
+
+#OR ANOTHER SOLUTION I DID
+def letter_count(str)
+  hsh = {}
+  spl_str = str.split(//)
+
+  str.each_char do |letter|
+    hsh[letter.to_sym] = spl_str.count(letter)
+  end
+  p hsh
 end
