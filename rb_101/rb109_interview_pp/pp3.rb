@@ -41,7 +41,6 @@ B. sub-methods (code steps in words)
 =end
 def to_weird_case(str)
   str_spl = str.split(" ")
-  str_spl
   index = 2
   letter = 1
   solution = []
@@ -53,7 +52,6 @@ def to_weird_case(str)
       if str_spl.length < index
         return str
       end
-
       next
     end
 
