@@ -38,11 +38,23 @@ return true if all are included
 else false
 =end 
 
+# def scramble(input1, input2)
+#   input2.each_char do |letter|
+#     if !input1.include?(letter) #== false
+#       return false
+#     end
+#   end
+#   true
+# end
+
 def scramble(input1, input2)
-  input2.each_char do |letter|
-    if !input1.include?(letter) #== false
+  index = 0
+  loop do
+    if input1.include?(input2[index]) == false
+      p "yes"
       return false
     end
+    index += 1
   end
   true
 end

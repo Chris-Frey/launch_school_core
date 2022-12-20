@@ -45,11 +45,11 @@ def decipher_this(str)
 #  p spl_str
   spl_str.map! do |char|
     if char.class == Integer
-    p  char.chr
+    p  char.to_i.chr
     # else
     #   next
     end
-    p spl_str
+     spl_str
   end
   spl_str.map! do |elem|
     if elem.class == String && elem.length > 1
@@ -64,7 +64,7 @@ end
 
 
 
-p decipher_this("65 119esi 111dl 111lw 108dvei 105n 97n 111ka") == "A wise old owl lived in an oak"
+p decipher_this("65 119esi 111dl 111lw 108dvei 105n 97n 111ka") #== "A wise old owl lived in an oak"
 # p decipher_this("84eh 109ero 104e 115wa 116eh 108sse 104e 115eokp") == "The more he saw the less he spoke"
 # p decipher_this("84eh 108sse 104e 115eokp 116eh 109ero 104e 104dare") == "The less he spoke the more he heard"
 # p decipher_this("87yh 99na 119e 110to 97ll 98e 108eki 116tah 119esi 111dl 98dri") == "Why can we not all be like that wise old bird"

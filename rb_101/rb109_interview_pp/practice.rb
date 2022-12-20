@@ -1,21 +1,28 @@
-def find_suspects(pockets, arr)
-  thieves_arr = []
-  return nil if pockets == nil || pockets.keys.empty?
-# p pockets[:tom]
-  # pockets.each do |k, v|
-    # arr.each do |num|
-     p pockets.delete_if do |k, v| 
-      !arr.all? do |x| x.include?(pockets.values)
-      end
-     end
-    return nil if pockets == {}
-   
-  # pockets
+# colors = ['red', 'blue', 'green']
+
+# result = colors.map.with_index do |element, idx|
+#    element[idx].upcase
+
+# end
+
+# p result
+
+# p colors.object_id
+# p result.object_id
+
+student_name = ["Brandon Riley", "Mary Evans", "Diane Lee", "Danielle Edwards",
+                "Chad Davis", "Thomas Hutchinson", "Phillip Gray", "Christina Thomas", 
+                "Shane Lester"]
+
+student_enrollment_season = ['summer', 'fall', 'fall', 'winter', 
+                             'spring', 'summer', 'summer', 'fall', 'fall']
+
+year_of_education = [1, 3, 4, 3, 2, 1, 4, 4, 1,]
+
+result = student_name.select.with_index do |name, idx|
+  student_enrollment_season[idx] == 'summer' && year_of_education[idx] == 1
 end
 
+p result
 
-p find_suspects({}, [1, 3]) == nil
-p find_suspects({ tom: [2], bob: [2], julia: [3], meg: [3] }, [2, 3]) == nil
-p find_suspects({ julia: nil, meg: [] } , [1, 6]) == nil
-p find_suspects({ meg: [1, 3], tom: [5, 3] }, [1, 3]) #==[:tom]
-p find_suspects({ meg: [3], tom: [5] }, []) #== [:meg, :tom]
+# result.select.with_index do |
