@@ -1,32 +1,44 @@
+=begin 
+Write a method that takes an Array of integers as input, multiplies all the numbers together, divides the result by the number of entries in the Array, and then prints the result rounded to 3 decimal places. Assume the array is non-empty.
+=end 
+
+=begin 
+Goal: multiply all numbers, divide by quantity of eelements, print result rounded to 3 decimal places 
+
+input: array of numbers 
+output: float number rounded to 3 decimal places 
+
+Data Structures:
+arrays
+-floats 
+
+Algorithm
+each number * the next
+divide the answer by array length, and add to_f on the end 
+usse round method to 3 decimal places
+=end 
+
 def show_multiplicative_average(arr)
-index = 1
-  mult_num = arr[0]
-loop do
-  if arr.length <= 1
-    arr.length.to_f
-    break
+  index = 0
+  product = 1
+    arr.each do |x| 
+     product *= x
+    end
+     solution = product / arr.length.to_f
+    p '%.3f' % solution
   end
-# p mult_num
-  mult_num = (arr[index] * mult_num)
-  index += 1
-  break if index == arr.length
-
-  # p result
-  end
-  solution = mult_num.to_f / arr.length
-
-end
+  
+  
+  
+  show_multiplicative_average([3, 5])                # => The result is 7.500
+  show_multiplicative_average([6])                   # => The result is 6.000
+  show_multiplicative_average([2, 5, 7, 11, 13, 17])
 
 
 
 
 
 
-
-
-# p show_multiplicative_average([3, 5])  # => The result is 7.500
-p show_multiplicative_average([6])   # => The result is 6.000
-# p show_multiplicative_average([2, 5, 7, 11, 13, 17]) # => The result is 28361.667
 
 =begin
 *************Problem***************************
